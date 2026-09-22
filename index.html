@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从来没有离开过 - 心理情感与陪伴支持平台</title>
+    <meta name="description" content="从来没有离开过是一个专注于情感陪伴、心理疏导与孤独感缓解的在线社区与服务平台。我们提供全天候的倾听服务、专业的心理咨询资源以及温暖的人际连接指南，帮助您在需要时找到依靠，不再独自面对黑夜。">
+    <meta name="keywords" content="从来没有离开过,情感陪伴,心理疏导,在线倾听,孤独感缓解,心理支持">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5c6b7f;
+            --accent-color: #8e9aaf;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-sub: #64748b;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius-md: 8px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 16px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .cta-btn:hover {
+            background-color: #4a5a6e;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eef2f5 0%, #dfe9f3 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(92,107,127,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(92,107,127,0.05);
+        }
+
+        /* Service Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(92,107,127,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            margin-top: 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .feature-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .feature-text h4 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feature-text p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-item h4 {
+            margin-bottom: 12px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .testimonial cite {
+            font-style: normal;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 60px 0 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 0.85rem;
+            }
+
+            .grid-2, .grid-3, .grid-4, .faq-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                从来没有离开过
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#services" class="active">服务</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </nav>
+            <a href="#start" class="cta-btn">开始陪伴</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>无论何时，我们<span style="color: var(--primary-color);">从来没有离开过</span></h1>
+                <p>在这个快节奏的世界里，孤独感或许难以避免。我们致力于为您提供全天候的情感陪伴、专业的心理支持以及温暖的人际连接，让您在需要时总能找到依靠。</p>
+                <div class="hero-actions">
+                    <a href="#services" class="cta-btn">探索服务</a>
+                    <a href="#about" class="btn-outline">了解更多</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>我们的核心服务</h2>
+                    <p>针对不同的情感需求，提供定制化的支持方案，帮助您走出阴霾，重获内心平静。</p>
+                </div>
+                <div class="grid grid-3">
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3>全天候在线倾听</h3>
+                        <p>无论深夜还是清晨，我们的倾听者随时待命。在这里，您可以卸下所有防备，自由地表达您的喜怒哀乐，无需担心被评判。</p>
+                        <a href="#" class="card-link">开始倾诉 &rarr;</a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </div>
+                        <h3>专业心理疏导</h3>
+                        <p>由持证心理咨询师提供一对一咨询服务，针对焦虑、抑郁、人际关系困扰等问题提供科学、专业的干预与指导。</p>
+                        <a href="#" class="card-link">预约咨询 &rarr;</a>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>互助社区陪伴</h3>
+                        <p>加入我们的匿名社区，与有相似经历的朋友分享故事。在这里，您会发现您并不孤单，温暖的社群支持是治愈的一部分。</p>
+                        <a href="#" class="card-link">加入社区 &rarr;</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Philosophy Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="grid grid-2" style="align-items: center;">
+                    <div>
+                        <h2 style="font-size: 2rem; margin-bottom: 20px;">为什么选择我们？</h2>
+                        <p style="color: var(--text-sub); margin-bottom: 24px;">
+                            我们深知，每个人在生命的某些时刻都会感到脆弱。有些情绪无法向亲友诉说，有些痛苦独自一人难以消化。我们的存在，就是为了填补这段空隙。
+                        </p>
+                        <div class="feature-item">
+                            <div class="feature-icon">1</div>
+                            <div class="feature-text">
+                                <h4>严格保密机制</h4>
+                                <p>您的隐私是我们最珍贵的资产。所有对话均经过加密，且严格遵守保密协议。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">2</div>
+                            <div class="feature-text">
+                                <h4>多元背景支持者</h4>
+                                <p>我们的志愿者和咨询师来自不同行业和背景，拥有丰富的共情能力和倾听经验。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">3</div>
+                            <div class="feature-text">
+                                <h4>科学的心理评估</h4>
+                                <p>在专业咨询中，我们结合心理学量表与临床经验，为您提供精准的评估与建议。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color: white; border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-md); text-align: center;">
+                        <div style="font-size: 4rem; color: var(--accent-color); margin-bottom: 20px;">🤝</div>
+                        <h3 style="margin-bottom: 16px;">信任与连接</h3>
+                        <p style="color: var(--text-sub); margin-bottom: 24px;">
+                            信任是建立连接的基础。我们致力于构建一个安全、包容、无评判的空间，让每一位访客都能感受到被看见、被理解、被接纳。
+                        </p>
+                        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+                            <div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">24h</div>
+                                <div style="font-size: 0.85rem; color: var(--text-sub);">在线响应</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">10k+</div>
+                                <div style="font-size: 0.85rem; color: var(--text-sub);">服务人次</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">98%</div>
+                                <div style="font-size: 0.85rem; color: var(--text-sub);">好评率</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="container">
+            <div class="testimonial">
+                <blockquote>
+                    “我不知道该怎么开口，但在这里，我发现自己终于可以说出来了。这种感觉就像是一个拥抱，虽然隔着屏幕，但我感觉到被温暖地包裹着。”
+                </blockquote>
+                <cite>—— 匿名用户，用户反馈</cite>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>你们的咨询服务收费吗？</h4>
+                        <p>我们提供多种服务模式。基础的倾听服务免费开放，而由持证心理咨询师提供的一对一深度咨询则根据时长收费，价格透明且可承受。具体收费标准请参考服务页面。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>我的隐私会被泄露吗？</h4>
+                        <p>绝对不会。我们采用端到端加密技术保护您的沟通内容，且所有工作人员均签署严格的保密协议，严禁泄露任何用户信息。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>如果遇到紧急情况怎么办？</h4>
+                        <p>如果您正处于极度痛苦或有自伤倾向，请立即拨打当地的心理危机干预热线或前往医院急诊。我们虽然提供陪伴，但无法替代专业的急救医疗服务。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>如何成为倾听志愿者？</h4>
+                        <p>我们欢迎有爱心、有耐心且具备一定心理学基础的人士加入。您需要通过我们严格的背景审查和培训考核，才能成为我们的志愿者。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="start" class="section" style="background-color: white;">
+            <div class="container" style="text-align: center;">
+                <h2 style="font-size: 2rem; margin-bottom: 16px;">准备好开始了吗？</h2>
+                <p style="color: var(--text-sub); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    无论您是想要倾诉心事，还是寻求专业的心理帮助，这里都有人愿意倾听。现在就加入，体验从未有过的安心与温暖。
+                </p>
+                <a href="#" class="cta-btn" style="padding: 14px 40px; font-size: 1.1rem;">立即开启陪伴之旅</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>从来没有离开过</h3>
+                    <p style="opacity: 0.8; line-height: 1.8;">
+                        致力于为每一个孤独的灵魂提供温暖的陪伴与专业的支持。我们相信，连接是治愈的开始。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#services">服务项目</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务时间</h4>
+                    <ul>
+                        <li>在线倾听：24小时全天候</li>
+                        <li>人工咨询：09:00 - 22:00</li>
+                        <li>紧急热线：400-123-4567</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：support@neverleft.com</li>
+                        <li>地址：情感支持中心大楼 101室</li>
+                        <li>关注我们：微信公众号：从未离开过</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 从来没有离开过 版权所有. 本平台仅供情感交流与心理健康科普，不构成医疗建议。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                      </html>
