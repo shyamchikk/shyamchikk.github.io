@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网线怎么接？本站提供详细的网线水晶头制作教程，涵盖T568B标准压线步骤、常见线序错误排查、千兆与百兆区别、以及网络跳线制作工具与注意事项。">
+    <meta name="keywords" content="网线怎么接,网线制作,水晶头压线,T568B线序,网线连接">
+    <title>网线怎么接 - 网络跳线制作教程与标准线序指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #ff6b00;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --code-bg: #282c34;
+            --code-text: #abb2bf;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e65c00;
+        }
+
+        /* Main Layout */
+        main {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        /* Content Area */
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--text-main);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cable Diagram */
+        .cable-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #fafafa;
+            border: 1px dashed var(--border-color);
+            border-radius: 4px;
+        }
+
+        .wire-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .wire {
+            width: 40px;
+            height: 20px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .connector {
+            width: 80px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .connector-label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Steps */
+        .steps {
+            counter-reset: step;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-item::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2rem;
+            font-weight: bold;
+        }
+
+        .step-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tool-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding-left: 0.5rem;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            <span>网络跳线制作指南</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#intro" class="active">简介</a></li>
+                <li><a href="#steps">制作步骤</a></li>
+                <li><a href="#tools">工具准备</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>网线怎么接？简单四步制作千兆网线</h1>
+    <p>不需要专业工具，只需一把网线钳和水晶头，即可在家完成网络跳线制作。掌握正确的T568B线序，告别网络不通的烦恼。</p>
+    <a href="#steps" class="btn">开始制作</a>
+</section>
+
+<main>
+    <div class="content">
+        <section id="intro">
+            <h2>什么是网线接法？</h2>
+            <p>“网线怎么接”通常指的是制作网线的过程，即将双绞线与RJ45水晶头连接。网线通常由八根铜芯组成，分为四对双绞线。为了减少信号干扰并提高传输稳定性，制作网线必须遵循特定的颜色顺序（线序）。</p>
+            <p>目前主流的标准是<strong>T568B</strong>（橙白、橙、绿白、蓝、蓝白、绿、棕白、棕）。无论是连接电脑与路由器，还是组建局域网，这种标准都能确保信号稳定传输。</p>
+            
+            <h3>T568B 标准线序图解</h3>
+            <div class="cable-diagram">
+                <div class="connector-label">水晶头接口（面朝自己）</div>
+                <div class="connector">8 Pin</div>
+                <div class="wire-row">
+                    <div class="wire" style="background-color: #ff9f43;">1</div>
+                    <div class="wire" style="background-color: #ff9f43;">2</div>
+                    <div class="wire" style="background-color: #2ecc71;">3</div>
+                    <div class="wire" style="background-color: #3498db;">4</div>
+                    <div class="wire" style="background-color: #3498db;">5</div>
+                    <div class="wire" style="background-color: #2ecc71;">6</div>
+                    <div class="wire" style="background-color: #9b59b6;">7</div>
+                    <div class="wire" style="background-color: #9b59b6;">8</div>
+                </div>
+                <div class="wire-row">
+                    <div class="wire" style="background-color: #ff9f43;">橙白</div>
+                    <div class="wire" style="background-color: #ff9f43;">橙</div>
+                    <div class="wire" style="background-color: #2ecc71;">绿白</div>
+                    <div class="wire" style="background-color: #3498db;">蓝</div>
+                    <div class="wire" style="background-color: #3498db;">蓝白</div>
+                    <div class="wire" style="background-color: #2ecc71;">绿</div>
+                    <div class="wire" style="background-color: #9b59b6;">棕白</div>
+                    <div class="wire" style="background-color: #9b59b6;">棕</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps">
+            <h2>网线制作详细步骤</h2>
+            <div class="steps">
+                <div class="step-item">
+                    <h4>1. 剥线与理线</h4>
+                    <p>使用网线钳的剥线口，在网线一端剥去约2-3厘米的外皮，露出里面的8根细线。注意不要剪断里面的铜丝。然后轻轻拨开线缆，按照T568B标准将8根线理顺，按照颜色顺序排列整齐。</p>
+                </div>
+                <div class="step-item">
+                    <h4>2. 剪齐线头</h4>
+                    <p>用网线钳的剪线口，将8根铜线剪平，确保线头整齐，这样水晶头内部的金属触点才能完全接触。</p>
+                </div>
+                <div class="step-item">
+                    <h4>3. 插入水晶头</h4>
+                    <p>将理好的线头插入RJ45水晶头，确保每一根线都插到底，且线序顺序从左到右与水晶头上的金属触点对应。插入后，线头应露出约1厘米。</p>
+                </div>
+                <div class="step-item">
+                    <h4>4. 压接水晶头</h4>
+                    <p>将插好线的水晶头放入网线钳的压线槽中（注意开口朝上，金属片朝下），用力压下钳柄，直到听到清脆的“咔哒”声。此时，水晶头内部的金属卡扣已锁定线缆。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools">
+            <h2>必备工具与材料</h2>
+            <p>制作网线并不复杂，但工具的选择会影响成品质量。以下是标准制作流程所需的物品：</p>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <span class="tool-icon">🛠️</span>
+                    <h4>网线钳</h4>
+                    <p>多功能钳子，兼具剥线、剪线、压接功能。建议选择带剥线槽和压线口的品牌工具。</p>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">🔌</span>
+                    <h4>RJ45水晶头</h4>
+                    <p>通常使用超五类（Cat5）或六类（Cat6）水晶头。六类头内部有十字骨架，支持千兆传输。</p>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">📏</span>
+                    <h4>网线</h4>
+                    <p>建议使用超五类或六类非屏蔽双绞线（UTP）。根据铺设距离选择适当的线径。</p>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">🔍</span>
+                    <h4>测线仪</h4>
+                    <p>制作完成后，使用测线仪测试8根线是否全部连通且顺序正确，是判断成败的关键。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips">
+            <h2>制作注意事项</h2>
+            <ul>
+                <li><strong>不要剪断铜丝：</strong>剥线时力度要适中，以免切断内部铜丝导致网线报废。</li>
+                <li><strong>线序必须一致：</strong>制作双绞线时，必须两端都遵循T568B标准。如果一端是T568B，另一端是T568A，则网络无法通信。</li>
+                <li><strong>双绞结构：</strong>虽然理线时将8根线排成一排，但在插入水晶头前，应保持双绞线的绞合状态，直到插入水晶头末端。</li>
+                <li><strong>压接力度：</strong>确保水晶头完全嵌入钳口，否则可能导致接触不良，网速变慢或断网。</li>
+            </ul>
+        </section>
+    </div>
+
+    <aside>
+        <div class="sidebar-card">
+            <h3>常见问题 (FAQ)</h3>
+            <div class="faq-item">
+                <div class="faq-question">网线怎么接千兆网？</div>
+                <div class="faq-answer">千兆网络需要8芯全通。必须使用六类线或超五类线，并确保水晶头压接到位，两端都使用T568B标准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">网线两头线序一样吗？</div>
+                <div class="faq-answer">是的，无论是直连线（连接电脑和路由器）还是交叉线（连接两台电脑），两端都应保持相同的T568B线序。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">压线钳需要买什么牌子的？</div>
+                <div class="faq-answer">家用或办公建议购买几十元左右的国产品牌多功能钳，只要刀口锋利、压接紧密即可。</div>
+            </div>
+        </div>
+
+        <div class="sidebar-card">
+            <h3>相关推荐</h3>
+            <ul style="padding-left: 1rem;">
+                <li style="margin-bottom: 0.5rem;"><a href="#">如何选择网线材质？</a></li>
+                <li style="margin-bottom: 0.5rem;"><a href="#">路由器设置与网线连接</a></li>
+                <li style="margin-bottom: 0.5rem;"><a href="#">网线长度对网速的影响</a></li>
+            </ul>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于本站</h4>
+            <p style="font-size: 0.9rem; color: #bdc3c7;">专注于网络硬件连接与维护知识的普及，提供简单易懂的网线制作教程与故障排查指南。</p>
+        </div>
+        <div class="footer-col">
+            <h4>快速导航</h4>
+            <ul>
+                <li><a href="#intro">线序标准</a></li>
+                <li><a href="#steps">制作步骤</a></li>
+                <li><a href="#tools">工具介绍</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>联系我们</h4>
+            <ul>
+                <li><a href="#">常见问题反馈</a></li>
+                <li><a href="#">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 网络跳线制作指南. 保留所有权利.
+    </div>
+</footer>
+
+</body>
+</html>
