@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="v游网为您提供最新的网络游戏资讯、热门游戏攻略、独家评测以及玩家社区交流平台，涵盖各类热门网游与单机游戏推荐。">
+    <meta name="keywords" content="v游网,网络游戏,游戏攻略,游戏评测,网游资讯,单机游戏推荐">
+    <title>v游网-最新网络游戏资讯与攻略社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #00cec9;
+            --bg-dark: #1e272e;
+            --bg-card: #2d3436;
+            --text-main: #dfe6e9;
+            --text-muted: #b2bec3;
+            --spacing-unit: 8px;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(30, 39, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 5px 15px;
+            align-items: center;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            height: 400px;
+        }
+
+        .hero-main {
+            background: linear-gradient(135deg, var(--primary-color), var(--bg-card));
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            cursor: pointer;
+        }
+
+        .hero-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwZWNlOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 80%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #5649c0;
+            transform: translateY(-2px);
+        }
+
+        .hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .side-card {
+            flex: 1;
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .side-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .side-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .side-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0 1.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .more-link {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .more-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .game-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--secondary-color);
+        }
+
+        .game-thumb {
+            width: 100%;
+            height: 140px;
+            background-color: #3d4649;
+            position: relative;
+        }
+
+        .game-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 1rem;
+        }
+
+        .game-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .game-rating {
+            color: #fdcb6e;
+        }
+
+        /* Latest News */
+        .news-list {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .news-date .day {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .news-date .month {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .news-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .news-content h3:hover {
+            color: var(--primary-color);
+        }
+
+        .news-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar Ad */
+        .sidebar-ad {
+            background-color: #000;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #12151a;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .hero-main {
+                height: 250px;
+            }
+
+            .news-list {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .search-box {
+                display: none;
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">v游网<span>.</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门网游</a></li>
+                    <li><a href="#">手游攻略</a></li>
+                    <li><a href="#">单机评测</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                    <li><a href="#">下载中心</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索游戏...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <article class="hero-main">
+                    <div class="hero-content">
+                        <span class="hero-tag">本周重磅</span>
+                        <h1 class="hero-title">《星际边境：觉醒》开启全服公测</h1>
+                        <p class="hero-desc">探索未知的宇宙星球，建立你的星际舰队。v游网首发深度评测与新手开荒指南，助你快速上手。</p>
+                        <a href="#" class="btn">立即阅读</a>
+                    </div>
+                </article>
+                <aside class="hero-side">
+                    <article class="side-card">
+                        <h3>最新开服表</h3>
+                        <p>查看本周所有热门游戏的最新开服时间及预约奖励。</p>
+                    </article>
+                    <article class="side-card">
+                        <h3>独家福利</h3>
+                        <p>v游网会员专享，每日签到领取限定皮肤与游戏币。</p>
+                    </article>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Hot Games Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门推荐</h2>
+                <a href="#" class="more-link">查看更多 ></a>
+            </div>
+            <div class="game-grid">
+                <!-- Game Card 1 -->
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/game1/300/200" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">幻世录 Online</h3>
+                        <div class="game-meta">
+                            <span>MMORPG</span>
+                            <span class="game-rating">★★★★★</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Game Card 2 -->
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/game2/300/200" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">暗影传说</h3>
+                        <div class="game-meta">
+                            <span>ARPG</span>
+                            <span class="game-rating">★★★★☆</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Game Card 3 -->
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/game3/300/200" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">荣耀战场</h3>
+                        <div class="game-meta">
+                            <span>MOBA</span>
+                            <span class="game-rating">★★★★★</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Game Card 4 -->
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/game4/300/200" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">赛博朋克 2077：重制版</h3>
+                        <div class="game-meta">
+                            <span>单机</span>
+                            <span class="game-rating">★★★★☆</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Game Card 5 -->
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/game5/300/200" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">原神：提瓦特冒险</h3>
+                        <div class="game-meta">
+                            <span>开放世界</span>
+                            <span class="game-rating">★★★★★</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Game Card 6 -->
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/game6/300/200" alt="游戏封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">逆水寒手游</h3>
+                        <div class="game-meta">
+                            <span>国风</span>
+                            <span class="game-rating">★★★★☆</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Latest News Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新资讯</h2>
+                <a href="#" class="more-link">查看更多 ></a>
+            </div>
+            <div class="news-list">
+                <div class="news-content">
+                    <article class="news-item">
+                        <div class="news-date">
+                            <div class="day">15</div>
+                            <div class="month">10月</div>
+                        </div>
+                        <div class="news-text">
+                            <h3><a href="#">《王者荣耀》S35赛季更新公告：英雄调整与地图改动一览</a></h3>
+                            <p>新赛季正式服将于本周五凌晨2点准时开启，v游网第一时间为您带来详细的新版本英雄数值调整分析及上分推荐。</p>
+                        </div>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">
+                            <div class="day">14</div>
+                            <div class="month">10月</div>
+                        </div>
+                        <div class="news-text">
+                            <h3><a href="#">Steam秋季特卖开启：多款3A大作史低折扣，错过等一年</a></h3>
+                            <p>在这个秋高气爽的季节，Steam秋季特卖正式上线。v游网整理了本周最值得入手的打折清单，包含《黑神话：悟空》等热门作品。</p>
+                        </div>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">
+                            <div class="day">13</div>
+                            <div class="month">10月</div>
+                        </div>
+                        <div class="news-text">
+                            <h3><a href="#">2024年全球最受欢迎的MMORPG排行榜发布，国服游戏表现亮眼</a></h3>
+                            <p>根据最新的玩家活跃度和付费数据统计，v游网为您盘点了全球最受欢迎的十大MMORPG，看看你的本命游戏是否上榜。</p>
+                        </div>
+                    </article>
+                </div>
+                <aside>
+                    <div class="sidebar-ad">
+                        <span>广告位：v游网合作推广</span>
+                    </div>
+                    <div class="section-header" style="margin-top: 2rem; margin-bottom: 1rem;">
+                        <h3 class="section-title" style="font-size: 1.2rem; border:none; padding:0;">热门榜单</h3>
+                    </div>
+                    <ul style="font-size: 0.95rem; color: var(--text-muted);">
+                        <li style="margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;">
+                            <a href="#" style="display:flex; justify-content:space-between;">
+                                <span>1. 魔兽世界</span>
+                                <span style="color:var(--primary-color)">98%</span>
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;">
+                            <a href="#" style="display:flex; justify-content:space-between;">
+                                <span>2. 逆水寒</span>
+                                <span style="color:var(--primary-color)">95%</span>
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;">
+                            <a href="#" style="display:flex; justify-content:space-between;">
+                                <span>3. 剑网3</span>
+                                <span style="color:var(--primary-color)">92%</span>
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;">
+                            <a href="#" style="display:flex; justify-content:space-between;">
+                                <span>4. 梦幻西游</span>
+                                <span style="color:var(--primary-color)">89%</span>
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;">
+                            <a href="#" style="display:flex; justify-content:space-between;">
+                                <span>5. 穿越火线</span>
+                                <span style="color:var(--primary-color)">85%</span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Guide/Help Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">玩家指南</h2>
+                <a href="#" class="more-link">查看更多 ></a>
+            </div>
+            <div class="game-grid">
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/guide1/300/200" alt="攻略封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">新手入门：如何快速提升战力</h3>
+                        <div class="game-meta">
+                            <span>通用攻略</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/guide2/300/200" alt="攻略封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">职业搭配推荐：PVP与PVE最优解</h3>
+                        <div class="game-meta">
+                            <span>进阶技巧</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="game-card">
+                    <div class="game-thumb">
+                        <img src="https://picsum.photos/seed/guide3/300/200" alt="攻略封面">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">版本强势英雄盘点</h3>
+                        <div class="game-meta">
+                            <span>版本分析</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于 v游网</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        v游网是国内领先的综合性游戏资讯平台，致力于为玩家提供最新鲜的游戏资讯、最专业的游戏攻略以及最活跃的玩家社区。我们热爱游戏，更懂玩家。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">游戏分类</a></li>
+                        <li><a href="#">排行榜单</a></li>
+                        <li><a href="#">下载中心</a></li>
+                        <li><a href="#">活动专区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持与联系</h4>
+                    <ul>
+                        <li><a href="#">用户反馈</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">B站直播间</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 v游网. All rights reserved. 本站内容仅供学习交流使用.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
