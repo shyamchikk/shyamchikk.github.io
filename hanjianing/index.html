@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩佳凝-知名品牌设计师与数字艺术家个人主页，展示品牌设计作品、插画创作及设计理念，提供品牌视觉识别系统(VI)与商业插画服务。">
+    <meta name="keywords" content="韩佳凝,品牌设计,插画师,视觉设计,VI设计,平面设计,设计作品集">
+    <title>韩佳凝-品牌视觉与插画设计作品集</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 3rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: rgba(230, 126, 34, 0.1);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #d35400;
+            border-color: #d35400;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(44, 62, 80, 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background-color: #eee;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(44, 62, 80, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-category {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .portfolio-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: none;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: rgba(255,255,255,0.6);
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 3rem;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">韩佳凝<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#services">服务项目</a></li>
+                    <li><a href="#portfolio">设计作品</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#contact">联系合作</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">开始咨询</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; width: 100%;">
+                <div class="hero-content">
+                    <span class="hero-tag">资深品牌设计师 / 视觉艺术家</span>
+                    <h1>用视觉语言<br>讲述品牌故事</h1>
+                    <p>专注于为企业与个人提供高品质的品牌视觉识别系统(VI)设计、商业插画创作及创意包装服务。致力于通过设计提升品牌价值与用户体验。</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">浏览作品集</a>
+                        <a href="#about" class="btn btn-outline">了解我的理念</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder using picsum with seed for consistency -->
+                    <img src="https://picsum.photos/seed/hanjianning/600/700" alt="韩佳凝设计作品展示">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>8+</h3>
+                        <p>年行业经验</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>120+</h3>
+                        <p>完成项目</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>合作客户</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>客户满意度</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>核心服务</h2>
+                    <p>提供全方位的视觉解决方案，满足不同阶段的品牌需求。</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3>品牌形象设计 (VI)</h3>
+                        <p>从Logo设计到完整的视觉识别系统，打造独特且具有辨识度的品牌形象，助力品牌在市场中脱颖而出。</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">❖</div>
+                        <h3>商业插画绘制</h3>
+                        <p>为产品、网页、广告及出版物提供原创插画服务，增添视觉趣味与情感连接，提升内容吸引力。</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">❖</div>
+                        <h3>UI/UX 视觉设计</h3>
+                        <p>专注于界面美学与交互体验的结合，设计符合用户习惯的移动端与Web端界面，提升产品质感。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选作品</h2>
+                    <p>近期部分品牌视觉与插画设计案例展示。</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/design1/400/300" alt="品牌VI设计项目">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">品牌视觉</span>
+                            <span class="portfolio-title">晨曦科技品牌重塑</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/design2/400/300" alt="商业插画项目">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">商业插画</span>
+                            <span class="portfolio-title">春季产品系列插画</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/design3/400/300" alt="UI设计项目">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">UI设计</span>
+                            <span class="portfolio-title">极简风格生活方式App</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/design4/400/300" alt="包装设计项目">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">包装设计</span>
+                            <span class="portfolio-title">高端茶叶礼盒包装</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/design5/400/300" alt="海报设计项目">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">平面设计</span>
+                            <span class="portfolio-title">艺术展览主视觉海报</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/design6/400/300" alt="Logo设计项目">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">LOGO设计</span>
+                            <span class="portfolio-title">现代餐饮连锁店标志</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/hanjianning2/500/600" alt="韩佳凝工作照">
+                    </div>
+                    <div class="about-content">
+                        <h2>关于韩佳凝</h2>
+                        <p>拥有8年视觉设计经验的独立设计师与创意总监。擅长将抽象的品牌理念转化为具象的视觉语言，注重设计细节与用户体验的平衡。</p>
+                        <p>作品风格兼具现代感与人文关怀，曾服务于多家知名企业与初创团队，致力于通过设计解决问题并创造价值。</p>
+                        <div class="skills-list">
+                            <span class="skill-tag">Photoshop</span>
+                            <span class="skill-tag">Illustrator</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">After Effects</span>
+                            <span class="skill-tag">品牌策略</span>
+                            <span class="skill-tag">创意策划</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2>开启您的视觉项目</h2>
+                <p>有合作意向？欢迎填写下表或直接发送邮件，我会尽快与您联系。</p>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('感谢您的留言，我会尽快回复您！');">
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">联系邮箱</label>
+                        <input type="email" id="email" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">项目需求</label>
+                        <textarea id="message" rows="4" placeholder="请简单描述您的需求..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">发送消息</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span style="font-weight: 700; font-size: 1.1rem; color: white;">韩佳凝.</span>
+                <p>&copy; 2023 Han Jianning Design. All Rights Reserved.</p>
+            </div>
+            <div class="social-links">
+                <a href="#">微博</a>
+                <a href="#">站酷</a>
+                <a href="#">Behance</a>
+                <a href="#">Dribbble</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                  </html>
